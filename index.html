@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveillance Eyes Document Generator</title>
+    <link rel="stylesheet" href="./css/lib/bootstrap.min.css">
+</head>
+<body style="font-family: 'Times New Roman', Times, serif !important;">
+
+    <div class="container mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <img src="./assets/Babar-logo.png" style="width: 250px" class="img-fluid" alt="Servilance Eyes">
+            <h3>Surveillance Eyes</h3>
+        </div>
+    </div>
+
+    <div class="m-5 d-flex flex-wrap gap-4">
+        <div class="form-floating flex-fill text-primary">
+            <input type="text" class="form-control text-primary border-info" id="date" placeholder="Enter Date">
+            <label for="date">Date</label>
+        </div>
+        <div class="form-floating flex-fill text-primary">
+            <input type="text" class="form-control text-primary border-info" id="title" placeholder="Enter Title">
+            <label for="floatingInput">Title</label>
+        </div>
+        <div class="form-floating flex-fill text-primary">
+            <input type="text" class="form-control text-primary border-info" id="subTitle" placeholder="Enter Sub Title">
+            <label for="floatingInput">Sub Title</label>
+        </div>
+        <div class="form-floating flex-fill text-primary">
+            <input type="text" class="form-control text-primary border-info" id="invoice" placeholder="Enter Invoice">
+            <label for="invoice">Invoice</label>
+        </div>
+    </div>
+
+    <form id="dataForm"></form>
+    <div class="d-flex justify-content-center m-5">
+        <button class="btn btn-outline-primary btn-lg mx-2 mb-3" onclick="addRowInputs()" type="button">
+            <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            <span>Row</span>
+        </button>
+        <button onclick="renderDoc()" class="btn btn-success btn-lg text-white mb-3">
+            <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span>Quotation</span>
+        </button>
+    </div>
+
+
+    <!-- Lib Script Files -->
+    <script src="./scripts/lib/bootstrap.bundle.js"></script>
+    <script src="./scripts/variables.js"></script>
+    <script src="./scripts/lib/docxtemplater-latest.min.js"></script>
+    <script src="./scripts/lib/pizzip.js"></script>
+    <script src="./scripts/lib/FileSaver.js"></script>
+    <script src="./scripts/lib/pizzip-utils.js"></script>
+
+    <!-- Custom Script Files -->
+    <script src="./scripts/create-docx.js"></script>
+    <script src="./scripts/index.js"></script>
+
+    <script>
+        function renderDoc() {
+            loadValues();
+            setTimeout(() => {
+                generate();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
