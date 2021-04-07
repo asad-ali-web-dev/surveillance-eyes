@@ -5,7 +5,7 @@ function loadFile(url,callback){
 }
 
 function generate() {
-    loadFile("../assets/input.docx",function(error,content){
+    loadFile("./assets/input.docx",function(error,content){
         if (error) { throw error };
 
         function replaceErrors(key, value) {
